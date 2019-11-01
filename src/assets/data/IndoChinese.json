@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Vodka",
+        "price": 6,
+        "image": "assets/images/vodka.jpg"
+    },
+    {         
+        "id": 2,
+        "name": "Frappe",
+        "price": 9,
+        "image": "assets/images/frappe.jfif"
+    },
+    {
+        "id" : 3,
+        "name": "Bubble Tea",
+        "price": 7,
+        "image": "assets/images/bubbletea.jpg"
+    },
+    {
+        "id" : 4,
+        "name": "Veg-Noodles",
+        "price": 7 ,
+        "image": "assets/images/VegNoodles.jpg"
+    },
+    {
+        "id" : 5,
+        "name": "Veg-Manchurian",
+        "price": 8 ,
+        "image": "assets/images/veg-manchurian.jpg"
+    },
+    {
+        "id" : 6,
+        "name": "Gobi Cauliflower",
+        "price": 8 ,
+        "image": "assets/images/GobiCauliflower.jpg"
+    },
+    {
+        "id" : 7,
+        "name": "Schezwan Rice",
+        "price": 4 ,
+        "image": "assets/images/SchezwanRice.jpg"     
+    },
+    {
+        "id" : 8,
+        "name": "Chinese Bhel",
+        "price": 9 ,
+        "image": "assets/images/ChineseBhel.jpg"
+    },
+    {
+        "id" : 9,
+        "name": "Chicken Noodles",
+        "price": 10 ,
+        "image": "assets/images/chicken-noodles.jpg"
+    },
+    {
+        "id" : 10,
+        "name": "Chicken Lollipop",
+        "price": 11,
+        "image": "assets/images/ChickenLollipop.jpg"
+    },
+    {
+        "id" : 11,
+        "name": "Chicken Fried Rice",
+        "price": 9 ,
+        "image": "assets/images/chicken-fried-rice.jpg"
+    },
+    {
+        "id" : 12,
+        "name": "Garlic Chicken",
+        "price": 10,
+        "image": "assets/images/Garlic Chicken.jpeg"
+    }
+]

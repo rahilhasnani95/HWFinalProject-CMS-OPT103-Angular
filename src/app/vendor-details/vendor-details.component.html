@@ -1,0 +1,209 @@
+<main role="main">
+    <button class="btn btn-primary btn-lg" style="float: left" routerLink='/Admin'>Admin-Home</button>
+    <section id="vendor">
+        <br>
+        <br>
+        <div class="container text-center">
+            <h1 class="heading">Vendor Details</h1>
+            <br>
+            <button type="button" class="btn btn-success text-center" data-toggle="modal" data-target="#myModal">Add
+                Vendor</button>
+        </div>
+        <br>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Vendor</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form #userForm="ngForm" (submit)="add(userForm)">
+                            <div class="form-group">
+                                <!-- <label>Existing User Id: </label>
+                                <input type="number" required #userId="ngModel" class="form-control" style="width:200px"
+                                    ngModel name="userId"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && userId.invalid }">
+                                <div *ngIf="userId.invalid && (userId.dirty || userId.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="userId.errors.required">
+                                        User Id is required
+                                    </div>
+                                </div> -->
+                                
+                                <label>Existing User Id:</label>
+                                <input type="number" class="form-control" [(ngModel)]="userId" name="userId"                            
+                                style="width:200px">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Vendor Image Url: </label>
+                                <input type="text" required #venImage="ngModel" class="form-control" style="width:200px"
+                                    ngModel name="imageUrl"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && venImage.invalid }">
+                                <div *ngIf="venImage.invalid && (venImage.dirty || venImage.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="venImage.errors.required">
+                                        Vendor Image Url is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Vendor Name: </label>
+                                <input type="text" required #venName="ngModel" class="form-control" style="width:200px"
+                                    ngModel name="name"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && venName.invalid }">
+                                <div *ngIf="venName.invalid && (venName.dirty || venName.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="venName.errors.required">
+                                        Vendor Name is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Vendor Cuisine:</label>
+                                <input type="text" required #itemCuisine="ngModel" class="form-control"
+                                    style="width:200px" ngModel name="cuisine"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && itemCuisine.invalid }">
+                                <div *ngIf="itemCuisine.invalid && (itemCuisine.dirty || itemCuisine.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="itemCuisine.errors.required">
+                                        Vendor Cuisine is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Vendor Contact: </label>
+                                <input type="text" minlength="12" maxlength="12" required #venContact="ngModel"
+                                    class="form-control" style="width:200px" ngModel name="contact"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && venContact.invalid }">
+                                <div *ngIf="venContact.invalid && (venContact.dirty || venContact.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="venContact.errors.required">
+                                        Vendor Contact is required
+                                    </div>
+                                    <div *ngIf="venContact.errors.minlength || venContact.errors.maxlength">
+                                        Vendor Contact must be 12 characters
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Vendor Email: </label>
+                                <input type="email" required #venEmail="ngModel" class="form-control"
+                                    style="width:200px" ngModel name="email"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && venEmail.invalid }">
+                                <div *ngIf="venEmail.invalid && (venEmail.dirty || venEmail.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="venEmail.errors.required">
+                                        Vendor Email is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Vendor Balance: </label>
+                                <input type="number" required #venBalance="ngModel" class="form-control"
+                                    style="width:200px" ngModel name="balance"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && venBalance.invalid }">
+                                <div *ngIf="venBalance.invalid && (venBalance.dirty || venBalance.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="venBalance.errors.required">
+                                        Vendor Balance is required
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" [disabled]='userForm.form.invalid' class="btn btn-success">Add
+                                Vendor</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let n of vendorDetails">
+                    <div class="card mb-4 box-shadow" style="width: 300px">
+                        <img class="card-img-top" *ngIf="n!==editVendorDetails"
+                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                            alt="Thumbnail [100%x225]" src="{{n.imageUrl}}" data-holder-rendered="true"
+                            style="height: 250px; width: 100%; display: block;">
+                        <div class="card-body">
+                            <p class="card-text float-center"><strong *ngIf="n!==editVendorDetails">Vendor Id:
+                                    {{n.id}}</strong></p>
+                            <p class="card-text float-center"><strong *ngIf="n!==editVendorDetails">Name:
+                                    {{n.name}}</strong></p>
+                            <p class="card-text float-center"><strong *ngIf="n!==editVendorDetails">Cuisine:
+                                    {{n.cuisine}}</strong></p>
+                            <p class="card-text float-center"><strong *ngIf="n!==editVendorDetails">Contact:
+                                    {{n.contact}}</strong></p>
+                            <p class="card-text float-center"><strong *ngIf="n!==editVendorDetails">Email:
+                                    {{n.email}}</strong></p>
+                            <p class="card-text float-center"><strong *ngIf="n!==editVendorDetails">Balance:
+                                    {{n.balance | currency}}</strong></p>
+                            <div class="d-flex justify-content-between align-items-center float-bottom">
+                                <ul>
+                                    <p *ngIf="n===editVendorDetails">
+                                        <label *ngIf="n===editVendorDetails"><strong>Image Url:</strong></label>
+                                        <input *ngIf="n===editVendorDetails" [(ngModel)]="n.imageUrl" type="text"
+                                            #venImageUrl="ngModel" [ngClass]="{ 'is-invalid': venImageUrl.invalid }"
+                                            class="form-control" required>
+                                    </p>
+
+                                    <p *ngIf="n===editVendorDetails">
+                                        <label *ngIf="n===editVendorDetails"><strong>Vendor Name:</strong></label>
+                                        <input *ngIf="n===editVendorDetails" [(ngModel)]="n.name" type="text"
+                                            #venName="ngModel" [ngClass]="{ 'is-invalid': venName.invalid }"
+                                            class="form-control" required>
+                                    </p>
+
+                                    <p *ngIf="n===editVendorDetails">
+                                        <label *ngIf="n===editVendorDetails"><strong>Vendor Cuisine:</strong></label>
+                                        <input *ngIf="n===editVendorDetails" [(ngModel)]="n.cuisine" type="text"
+                                            #venCuisine="ngModel" [ngClass]="{ 'is-invalid': venCuisine.invalid }"
+                                            class="form-control" required>
+                                    </p>
+
+                                    <p *ngIf="n===editVendorDetails">
+                                        <label *ngIf="n===editVendorDetails"><strong>Vendor Contact:</strong></label>
+                                        <input *ngIf="n===editVendorDetails" [(ngModel)]="n.contact" type="text"
+                                            #venContact="ngModel" [ngClass]="{ 'is-invalid': venContact.invalid }"
+                                            class="form-control" required>
+                                    </p>
+
+                                    <p *ngIf="n===editVendorDetails">
+                                        <label *ngIf="n===editVendorDetails"><strong>Vendor Email:</strong></label>
+                                        <input *ngIf="n===editVendorDetails" [(ngModel)]="n.email" type="text"
+                                            #venEmail="ngModel" [ngClass]="{ 'is-invalid': venEmail.invalid }"
+                                            class="form-control" required>
+                                    </p>
+
+                                    <button type="button" *ngIf="n===editVendorDetails" class="btn btn-md btn-success"
+                                        title="Save" (click)="update()">Save</button>
+
+                                    <div class="btn-group" *ngIf="n!==editVendorDetails">
+                                        <button type="button" class="btn btn-sm btn-warning" title="Edit"
+                                            (click)="edit(n)">
+                                            Edit</button>
+                                        <button type="button" class="btn btn-sm btn-danger" title="Delete"
+                                            (click)="delete(n)">Delete</button>
+                                        <br>
+                                    </div>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

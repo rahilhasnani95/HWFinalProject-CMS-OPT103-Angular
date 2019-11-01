@@ -1,0 +1,31 @@
+[
+    {
+        "id": 49208,
+        "name": "Rahil Hasnani",
+        "image": "assets/images/rahil.jpg"
+      
+    },
+    {
+        "id": 49212,
+        "name": "Rohit Prajapati",
+        "image": "assets/images/rohit.jpg"
+       
+    },
+    {
+        "id" : 49207,
+        "name": "Sonal Patil",
+        "image": "assets/images/sonal.jpg"
+       
+    },
+    {
+        "id" : 49204,
+        "name": "Ankita Tungidwar",
+        "image": "assets/images/ankita.jpg"
+    },
+    {
+        "id" : 49213,
+        "name": "Amit Kaul",
+        "image": "assets/images/amit.jpg"
+        
+    }
+]

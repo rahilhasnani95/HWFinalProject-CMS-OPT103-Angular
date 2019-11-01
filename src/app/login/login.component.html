@@ -1,0 +1,75 @@
+<!-- <div class="container-fluid h-100">
+    <div class="d-flex flex-column justify-content-center h-100 align-items-center  p-4 ">
+        <h1 style="color: white">LOGIN</h1>
+        <br>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="form-group">
+              <strong> <label for="username" style="color: white">Username</label></strong>  <input type="text" class="form-control" id="username" required
+                    minlength="4" [(ngModel)]="model.username" name="username" #username="ngModel">
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                    <div *ngIf="username.errors.required">
+                        Username is required
+                    </div>
+                    <div *ngIf="username.errors.minlength" style="color: white">
+                        Username must be atleast of 4 characters
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="color: white">
+                <strong>   <label for="password">Password</label></strong>  <input type="password" class="form-control" id="password" required
+                    minlength="4" [(ngModel)]="model.password" name="password" #password="ngModel">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                    <div *ngIf="password.errors.required">
+                        Password is required
+                    </div>
+
+                    <div *ngIf="password.errors.minlength">
+                        Password must be atleast of 4 characters
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="color: white">
+                <strong>    <label for="role">Role</label> </strong> <select class="form-control" id="role" required [(ngModel)]="model.role"
+                    name="role" #role="ngModel">
+                    <option *ngFor="let p of roles" [value]="p">{{p}}</option>
+                    
+                    <div *ngIf="role.invalid && (role.dirty || role.touched)" class="alert alert-danger">
+                        <div *ngIf="role.errors.required">
+                            Role is required
+                        </div>
+                    </div>
+                </select>
+            </div>
+            <button type="submit" [disabled]="loginForm.form.invalid" class="btn btn-primary">Login</button>
+        </form>
+        <br>
+        <br><br>
+    </div>
+</div> -->
+
+<div class="container-fluid ">
+    <div class="row d-flex h-100">
+        <div class="col-md-4 mx-auto" style="height: 500px">
+            <br>
+            <h2 style="color: white">Login</h2>
+            <br>
+            <div *ngIf="status" class="alert" [ngClass]="status.class">
+                {{status.message}}
+            </div>
+            <form [formGroup]="form" (submit)="login()" #loginForm="ngForm">
+                <div class="form-group">
+                    <label for="username" style="color: white">Username</label>
+                    <input type="text" name="username" class="form-control" formControlName="username" />
+                </div>
+                <div class="form-group">
+                    <label for="password" style="color: white">Password</label>
+                    <input type="password" name="password" class="form-control" formControlName="password" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="submit" [disabled]="form.invalid" class="btn btn-success">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

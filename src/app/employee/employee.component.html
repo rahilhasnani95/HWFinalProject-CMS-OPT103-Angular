@@ -1,0 +1,174 @@
+<main role="main">
+
+    <section style="height: 50px">
+        <div class="text-center">
+
+            <button style="float: right;"type="button" class="btn btn-lg btn-outline-primary" data-toggle="modal" data-target="#mymodal">My
+                Profile</button>
+
+            <button style="float: left;" class="btn btn-lg btn-outline-primary"><a href="Employee#addmoney">Add Wallet
+                    Balance</a></button> <br>
+            <!-- <h5 style="text-align: center">My Wallet Balance: ${{empBalance}}</h5> -->
+        </div>
+    </section>
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Menu</h1><br>
+            <p class="text-muted"><strong>Indian Chinese</strong> cuisine or <strong>Sino-Indian</strong> cuisine is the
+                adaptation of Chinese
+                seasoning and cooking techniques to Indian tastes through a larger offering to also include vegetarian
+                dishes.
+            </p>
+            <p class="text-muted"><strong>North Indian</strong> cuisine is a form of cuisine, from the region of
+                Northern India which
+                include cuisines of
+                Jammu and Kashmir, Punjab, Chandigarh, Haryana, Himachal Pradesh, Rajasthan, Uttarakhand, Delhi, Uttar
+                Pradesh
+                and Bihar (Bhojpuri Cuisine) as well as central regions like Madhya Pradesh.</p>
+            <p class="text-muted">
+                <strong>South Indian</strong> cuisine includes the cuisines of the
+                five southern states of India—Andhra Pradesh, Karnataka, Kerala, Tamil Nadu
+                and Telangana—and the union territories of Lakshadweep, Pondicherry, and the
+                Andaman and Nicobar Islands.
+            </p>
+        </div>
+
+        <!-- <button type="reset" (click)="location.href='#myCart'">
+            My Cart</button> -->
+
+    </section>
+
+    <!-- Profile Modal -->
+    <div class="modal fade" id="mymodal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">My Profile</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+
+                    <div>
+                        <img class="img" style="float: right;" src="/assets/images/rahil.jpg">
+                        <strong>
+                            <label> <i class="fas fa-user"></i>&nbsp; Name: </label> Emp1 <br> <br>
+                            <label> <i class="fas fa-location-arrow"></i> &nbsp;Address: </label> 1234 Peachtree Rd,
+                            Atlanta, GA-30328 <br> <br>
+                            <label> <i class="fas fa-mobile-alt"></i> &nbsp;Contact No: 8325689731</label> <br> <br>
+                            <label> <i class="fas fa-envelope-open"></i> &nbsp; Email Id: </label> emp1@gmail.com <br>
+                            <br>
+                            <label> <i class="fas fa-dollar-sign"></i> &nbsp;Wallet Balance: </label> $50 <br> </strong>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="album py-5 bg-light">
+      
+                <button class="btn btn-outline-dark btn-lg" style="float: right" routerLink='../Cart'>View Cart</button>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-3" *ngFor="let n of indoMenu;">
+                    <div class="card mb-4 box-shadow img-hover-zoom">
+                        <img class="card-img-top"
+                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                            alt="Thumbnail [100%x225]" src="{{n.imageUrl}}" data-holder-rendered="true"
+                            style="height: 190px; width: 100%; display: block;">
+
+                        <div class="card-body">
+                            <p class="card-text"><strong *ngIf="n!==editSouthItem">{{n.name}}</strong><span
+                                    style="float: right"><strong *ngIf="n!==editSouthItem">${{n.price}}</strong></span>
+                            </p>
+
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <button type="button" class="btn btn-sm btn-outline-primary" title="Add to Your Order"
+                                    (click)="add1(n)">Add to Order</button>
+
+                                <!-- <a [routerLink]="['/cart', { id:employeemenu.id }]">Buy Now</a>    -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3" *ngFor="let n of southMenu">
+
+                    <div class="card mb-4 box-shadow img-hover-zoom">
+                        <img class="card-img-top"
+                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                            alt="Thumbnail [100%x225]" src="{{n.imageUrl}}" data-holder-rendered="true"
+                            style="height: 190px; width: 100%; display: block;">
+
+                        <div class="card-body">
+                            <p class="card-text"><strong *ngIf="n!==editSouthItem">{{n.name}}</strong><span
+                                    style="float: right"><strong *ngIf="n!==editSouthItem">${{n.price}}</strong></span>
+                            </p>
+
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <button type="button" class="btn btn-sm btn-outline-primary" title="Add to Your Order"
+                                    (click)="add2(n)">Add to Order</button>
+
+                                <!-- <a [routerLink]="['/cart', { id:employeemenu.id }]">Buy Now</a>    -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3" *ngFor="let n of northMenu">
+
+                    <div class="card mb-4 box-shadow img-hover-zoom">
+                        <img class="card-img-top"
+                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                            alt="Thumbnail [100%x225]" src="{{n.imageUrl}}" data-holder-rendered="true"
+                            style="height: 190px; width: 100%; display: block;">
+
+                        <div class="card-body">
+                            <p class="card-text"><strong *ngIf="n!==editSouthItem">{{n.name}}</strong><span
+                                    style="float: right"><strong *ngIf="n!==editSouthItem">${{n.price}}</strong></span>
+                            </p>
+
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <button type="button" class="btn btn-sm btn-outline-primary" title="Add to Your Order"
+                                    (click)="add3(n)">Add to Order</button>
+
+                                <!-- <a [routerLink]="['/cart', { id:employeemenu.id }]">Buy Now</a>    -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <br>
+            <hr>
+
+<hr>
+            <section id="addmoney" style="text-align: center;">
+                <h3><i class="fas fa-money-bill-alt"></i> Add Balance</h3>
+                <hr>
+
+                <input type="number" [(ngModel)]="amount" placeholder="Enter Amount" min="1" required> <br><br>
+                <button class="btn btn-sm btn-outline-success" (click)="addBalance(amount)">Add Money to Wallet</button>
+            </section> <br><br><br>
+
+        </div>
+    </div>
+</main>

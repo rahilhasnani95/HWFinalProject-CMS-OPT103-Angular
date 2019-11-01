@@ -1,0 +1,63 @@
+<main role="main">
+        <section class="jumbotron text-center" id="order" >
+            <div class="container">
+                <h1 class="jumbotron-heading">Pending Request</h1>
+    
+    
+    
+            </div>
+        
+    
+        <div class="container text-centert">
+            <div class="container text-center" style="margin-left: 10%">
+    
+                <div class="row text-center">
+                    <div class="col-md-12 text-center">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Names</th>
+                                <th>Amount</th>
+                                <th>Order</th>
+                                <th>Order</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let o of pendingOrders">
+                                <td style="width: 150px"><strong>{{o.id}}</strong></td>
+                                <td style="width: 150px"><strong>{{o.name}}</strong></td>
+                                <td style="width: 150px"><strong>{{o.amount}}</strong></td>
+                                
+                                <td style="width: 150px"><strong>{{o.dishes}}</strong></td>
+                                <td>
+                                        <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-outline-warning" title="Edit Menu Item"
+                                                    (click)="edit(o)"> Accept</button> &nbsp; &nbsp;
+                                                <button type="button" class="btn btn-sm btn-outline-danger" title="Delete Menu Item"
+                                                    (click)="delete(o)">Deny </button>
+                                            </div>
+                                </td>
+                                <!-- <div class="d-flex justify-content-between align-items-center">
+                                        <input *ngIf="n===editNorthItem" [(ngModel)]="n.name" type="text" (blur)="update()"
+                                            (keyup.enter)="update()">
+                                            
+                                        <input *ngIf="n===editNorthItem" [(ngModel)]="n.price" type="text" (blur)="update()"
+                                            (keyup.enter)="update()">
+                                      
+                                    </div> -->
+                           </tr>
+                        </tbody>
+    
+                        </table>
+    
+                    </div>
+    
+    
+                </div>
+            </div>
+        </div>
+    
+    
+    </section>
+    </main>

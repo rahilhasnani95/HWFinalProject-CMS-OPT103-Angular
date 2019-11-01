@@ -1,0 +1,186 @@
+<main role="main">
+    <button class="btn btn-primary btn-lg" style="float: left" routerLink='/Admin'>Admin-Home</button>
+    <section id="employee">
+        <br>
+        <br>
+        <h1 class="heading text-center" style="color: white">Employee List</h1>
+        <div class="container">
+            <button type="button" class="btn btn-success text-center" data-toggle="modal" data-target="#myModal">Add
+                Employee</button>
+            <br />
+        </div>
+
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Employee</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form #userForm="ngForm" (submit)="add(userForm)">
+                            <div class="form-group">
+                                <!-- <label>Existing User Id: </label>
+                                <input type="number" required #userId="ngModel" class="form-control" style="width:200px"
+                                    ngModel name="userId"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && userId.invalid }">
+                                <div *ngIf="userId.invalid && (userId.dirty || userId.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="userId.errors.required">
+                                        User Id is required
+                                    </div>
+                                </div> -->
+
+                                <label>Existing User Id:</label>
+                                <input type="number" class="form-control" [(ngModel)]="userId" name="userId"                            
+                                style="width:200px">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Employee Image: </label>
+                                <input type="text" required #empImage="ngModel" class="form-control" style="width:200px"
+                                    ngModel name="imageUrl"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && empImage.invalid }">
+                                <div *ngIf="empImage.invalid && (empImage.dirty || empImage.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="empImage.errors.required">
+                                        Employee Image Url is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Employee Name: </label>
+                                <input type="text" required #empName="ngModel" class="form-control" style="width:200px"
+                                    ngModel name="name"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && empName.invalid }">
+                                <div *ngIf="empName.invalid && (empName.dirty || empName.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="empName.errors.required">
+                                        Employee Name is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Employee Contact: </label>
+                                <input type="text" minlength="12" maxlength="12" required #empContact="ngModel"
+                                    class="form-control" style="width:200px" ngModel name="contact"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && empContact.invalid }">
+                                <div *ngIf="empContact.invalid && (empContact.dirty || empContact.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="empContact.errors.required">
+                                        Employee Contact is required
+                                    </div>
+                                    <div *ngIf="empContact.errors.minlength || empContact.errors.maxlength">
+                                        Employee Contact must be 12 characters
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Employee Email: </label>
+                                <input type="email" required #empEmail="ngModel" class="form-control"
+                                    style="width:200px" ngModel name="email"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && empEmail.invalid }">
+                                <div *ngIf="empEmail.invalid && (empEmail.dirty || empEmail.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="empEmail.errors.required">
+                                        Employee Email is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Employee Balance: </label>
+                                <input type="number" required #empBalance="ngModel" class="form-control"
+                                    style="width:200px" ngModel name="balance"
+                                    [ngClass]="{ 'is-invalid': userForm.submitted && empBalance.invalid }">
+                                <div *ngIf="empBalance.invalid && (empBalance.dirty || empBalance.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="empBalance.errors.required">
+                                        Employee Balance is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" [disabled]='userForm.form.invalid' class="btn btn-success">Add
+                                Employee</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container text-center">
+            <br />
+            <div class="row table-wrap">
+                <table class="table">
+                    <th>Image</th>
+                    <th>Employee Id</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Balance</th>
+                    <th>Actions</th>
+                    <tbody>
+                        <tr *ngFor="let n of employeeDetails">
+                            <td><img class="img" *ngIf="n!==editEmployeeDetails" src="{{n.imageUrl}}"></td>
+                            <td><strong *ngIf="n!==editEmployeeDetails">{{n.id}}</strong></td>
+                            <td><strong *ngIf="n!==editEmployeeDetails">{{n.name}}</strong></td>
+                            <td><strong *ngIf="n!==editEmployeeDetails">{{n.contact}}</strong></td>
+                            <td><strong *ngIf="n!==editEmployeeDetails">{{n.email}}</strong></td>
+                            <td><strong *ngIf="n!==editEmployeeDetails">{{n.balance | currency}}</strong></td>
+
+                            <ul>
+                                <p *ngIf="n===editEmployeeDetails">
+                                    <label *ngIf="n===editEmployeeDetails"><strong>Image Url:</strong></label>
+                                    <input *ngIf="n===editEmployeeDetails" [(ngModel)]="n.imageUrl" type="text"
+                                        #empImageUrl="ngModel" [ngClass]="{ 'is-invalid': empImageUrl.invalid }"
+                                        class="form-control" required>
+                                </p>
+
+                                <p *ngIf="n===editEmployeeDetails">
+                                    <label *ngIf="n===editEmployeeDetails"><strong>Employee Name:</strong></label>
+                                    <input *ngIf="n===editEmployeeDetails" [(ngModel)]="n.name" type="text"
+                                        #empName="ngModel" [ngClass]="{ 'is-invalid': empName.invalid }"
+                                        class="form-control" required></p>
+
+                                <p *ngIf="n===editEmployeeDetails">
+                                    <label *ngIf="n===editEmployeeDetails"><strong>Employee Contact:</strong></label>
+                                    <input *ngIf="n===editEmployeeDetails" [(ngModel)]="n.contact" type="text"
+                                        #empContact="ngModel" [ngClass]="{ 'is-invalid': empContact.invalid }"
+                                        class="form-control" required></p>
+
+                                <p *ngIf="n===editEmployeeDetails">
+                                    <label *ngIf="n===editEmployeeDetails"><strong>Employee Email:</strong></label>
+                                    <input *ngIf="n===editEmployeeDetails" [(ngModel)]="n.email" type="email"
+                                        #empEmail="ngModel" [ngClass]="{ 'is-invalid': empEmail.invalid }"
+                                        class="form-control" required></p>
+
+
+                                <button type="button" *ngIf="n===editEmployeeDetails" class="btn btn-md btn-success"
+                                    title="Save" (click)="update()">Save</button>
+
+                                <div class="btn-group" *ngIf="n!==editEmployeeDetails">
+                                    <td><button type="button" class="btn btn-md btn-warning" title="Edit"
+                                            (click)="edit(n)">Edit</button>
+                                    </td>
+                                    <td><button type="button" class="btn btn-md btn-danger" title="Delete"
+                                            (click)="delete(n)">Delete</button>
+                                    </td>
+                                </div>
+                            </ul>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>

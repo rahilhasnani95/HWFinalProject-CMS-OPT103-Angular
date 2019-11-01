@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Coffee",
+        "price": 6,
+        "image": "assets/images/coffee.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Lemon Tea",
+        "price": 7,
+        "image": "assets/images/lemon.jpg"
+    },
+    {
+        "id" : 3,
+        "name": "Butter Milk",
+        "price": 5,
+        "image": "assets/images/buttermilk.jpg"
+    },
+    {
+        "id" : 4,
+        "name": "Idli",
+        "price": 7 ,
+        "image": "assets/images/idli.jpg"
+    },
+    {
+        "id" : 5,
+        "name": "Utthapam",
+        "price": 8 ,
+        "image": "assets/images/Uttapam.jpg"
+    },
+    {
+        "id" : 6,
+        "name": "Vada",
+        "price": 8 ,
+        "image": "assets/images/vada.jpg"
+    },
+    // {
+    //     "id" : 7,
+    //     "name": "Gobi Cauliflower",
+    //     "price": 11 ,
+    //     "image": "assets/images/GobiCauliflower.jpg"
+    // },
+    {
+        "id" : 8,
+        "name": "Puttu Kadala",
+        "price": 12 ,
+        "image": "assets/images/puttukadala.jpg"
+    },
+    {
+        "id" : 9,
+        "name": "GheeDosa",
+        "price": 10 ,
+        "image": "assets/images/GheeDosa.jpg"
+    },
+    {
+        "id" : 10,
+        "name": "Kerala Karimeen Fry",
+        "price": 11,
+        "image": "assets/images/KeralaKarimeenFry.jpg"
+    },
+    {
+        "id" : 11,
+        "name": "Hyderabadi Chicken Biryani",
+        "price": 19 ,
+        "image": "assets/images/HyderabadiChickenBiryani.jpg"
+    },
+    {
+        "id" : 12,
+        "name": "South Indian Mix Thali",
+        "price": 10,
+        "image": "assets/images/southindian.jpeg"
+    }
+]

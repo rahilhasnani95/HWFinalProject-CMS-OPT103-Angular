@@ -1,0 +1,33 @@
+<main role="main">
+    <br>
+    <h2 style="text-align: center;">My cart</h2><br><br>
+    <table style="width: 60%" class="table table-hover table-dark" align="center">
+        <thead>
+            <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">Item Price</th>
+                <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of cart;">
+                <td>{{c.name}}</td>
+                <td>${{c.price}}</td>
+        
+                <!-- <td>
+                    total+= {{c.price}}
+                </td> -->
+
+                <td><button class="btn btn-danger btn-sm" (click)="deleteItem(c)">x</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <br><hr>
+
+    <div style="text-align: center;">
+        <h3>Total : {{getSum()}}</h3>
+        <button class="btn btn-outline-primary btn-lg" (click)="checkOut(1)">Checkout</button>
+    </div>
+
+    <br><br><br>
+</main>

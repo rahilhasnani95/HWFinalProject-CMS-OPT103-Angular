@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Chai",
+        "price": 6,
+        "image": "assets/images/tea.jpg"
+    },
+    {         
+        "id": 2,
+        "name": "Black Tea",
+        "price": 9,
+        "image": "assets/images/black.jpg"
+    },
+    {
+        "id" : 3,
+        "name": "Mango Lassi",
+        "price": 7,
+        "image": "assets/images/mango.jpg"
+    },
+    {
+        "id" : 4,
+        "name": "Chole Puri",
+        "price": 7 ,
+        "image": "assets/images/chole puri.jpg"
+    },
+    {
+        "id" : 5,
+        "name": "Chole Bhature",
+        "price": 8 ,
+        "image": "assets/images/Chole-Bhature.jpg"
+    },
+    {
+        "id" : 6,
+        "name": "Biryani",
+        "price": 8 ,
+        "image": "assets/images/briyani.jpg"
+    },
+    {
+        "id" : 7,
+        "name": "Paratha",
+        "price": 4 ,
+        "image": "assets/images/paratha.jpg"     
+    },
+    {
+        "id" : 8,
+        "name": "Tandoori Chicken",
+        "price": 9 ,
+        "image": "assets/images/Thandoori-Chicken.jpg"
+    },
+    {
+        "id" : 9,
+        "name": "Chicken Curry",
+        "price": 10 ,
+        "image": "assets/images/chicken-curry.jpg"
+    },
+    {
+        "id" : 10,
+        "name": "Meatball Curry",
+        "price": 11,
+        "image": "assets/images/meatball.jpeg"
+    },
+    {
+        "id" : 11,
+        "name": "Meat Curry",
+        "price": 9 ,
+        "image": "assets/images/meat.jpg"
+    },
+    {
+        "id" : 12,
+        "name": "Chicken Biryani",
+        "price": 10,
+        "image": "assets/images/Chicken biryani.jpg"
+    }
+]

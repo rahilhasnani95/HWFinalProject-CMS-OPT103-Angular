@@ -1,0 +1,9 @@
+#order{
+    /* background-color: aqua; */
+    background: url("/assets/images/order.gif");  
+    background-size: cover;     
+    
+    background-repeat: no-repeat;
+ 
+    height: 100%;
+}

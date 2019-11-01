@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Rahil",
+        "amount": "$ 79",
+        "dishes": "Meat Curry,Tea,Vada,Ghee Dosa"
+      
+    },
+    {
+        "id": 2,
+        "name": "Rohit",
+        "amount": "$ 29",
+        "dishes": "Tea,Vada,Ghee Dosa"
+       
+    },
+    {
+        "id" : 3,
+        "name": "Sonal",
+        "amount": "$ 19",
+        "dishes": "Chai,Idli"
+        
+       
+    },
+    {
+        "id" : 4,
+        "name": "Ankita",
+        "amount": "$ 69",
+        "dishes": "Chicken Chettinad,Coffee,Vada,Briyani"
+    },
+    {
+        "id" : 5,
+        "name": "Amit",
+        "amount": "$ 49",
+        "dishes": "Beef Dry Fry,Buttermilk,Aloo Curry,Frappe"
+        
+    }
+]

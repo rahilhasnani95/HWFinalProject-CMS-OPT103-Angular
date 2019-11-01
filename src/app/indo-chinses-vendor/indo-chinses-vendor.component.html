@@ -1,0 +1,136 @@
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Your Menu</h1>
+            <p class="lead text-muted">Indian Chinese cuisine or Sino-Indian cuisine is the adaptation of Chinese
+                seasoning and cooking techniques to Indian tastes through a larger offering to also include vegetarian
+                dishes.
+                The Indian-style Chinese cuisine is said to have been developed by the small Chinese community that has
+                lived in Kolkata for over a century.</p>
+            <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#myModal">Add
+                Item</button>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary my-2" routerLink="/OrderDetails"> View History</button>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary my-2" routerLink="/PendingOrder"> Pending Requests</button>
+        </div>
+    </section>
+
+    <!-- Add Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Menu Item</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form #userForm="ngForm" (submit)="add(userForm)">
+                        <div class="form-group">
+                            <label>Item Name: </label>
+                            <input type="text" required #itemName="ngModel" class="form-control" style="width:200px"
+                                ngModel name="name"
+                                [ngClass]="{ 'is-invalid': userForm.submitted && itemName.invalid }">
+                            <div *ngIf="itemName.invalid && (itemName.dirty || itemName.touched)"
+                                class="alert alert-danger">
+                                <div *ngIf="itemName.errors.required">
+                                    Item Name is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Image:</label>
+                            <input type="text" required #imageUrl="ngModel" class="form-control" style="width:200px"
+                                ngModel name="imageUrl"
+                                [ngClass]="{ 'is-invalid': userForm.submitted && imageUrl.invalid }">
+
+                            <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)"
+                                class="alert alert-danger">
+                                <div *ngIf="imageUrl.errors.required">
+                                    Image Url is required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Item Price :</label>
+                            <input type="number" required #itemPrice="ngModel" class="form-control" style="width:200px"
+                                ngModel name="price"
+                                [ngClass]="{ 'is-invalid': userForm.submitted && itemPrice.invalid }">
+                            <div *ngIf="itemPrice.invalid && (itemPrice.dirty || itemPrice.touched)"
+                                class="alert alert-danger">
+                                <div *ngIf="itemPrice.errors.required">
+                                    Item Price is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Existing Vendor Id:</label>
+                            <input type="number" class="form-control" [(ngModel)]="vendorId" name="vendorId"                            
+                            style="width:200px">
+                        </div>
+
+                        <button type="submit" [disabled]="userForm.form.invalid" class="btn btn-success">Add
+                            Item</button>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <h5 style="text-align: center">My Account Balance: $300</h5><br>
+
+            <div class="row">
+
+                <div class="col-md-4" *ngFor="let n of indoVendors">
+                    <div class="card mb-4 box-shadow img-hover-zoom">
+                        <img class="card-img-top"
+                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                            alt="Thumbnail [100%x225]" src="{{n.imageUrl}}" data-holder-rendered="true"
+                            style="height: 190px; width: 100%; display: block;">
+                        <div class="card-body">
+                            <p class="card-text"><strong *ngIf="n!==editIndoItem">{{n.name}}</strong><span
+                                    style="float: right"><strong *ngIf="n!==editIndoItem">${{n.price}}</strong></span>
+                            </p>
+                            <ul>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p *ngIf="n===editIndoItem">
+                                        <label *ngIf="n===editIndoItem"><strong>Item Name: </strong></label>
+                                        <input *ngIf="n===editIndoItem" [(ngModel)]="n.name" type="text"
+                                            class="form-control" required>
+                                    </p>
+
+                                    &nbsp; &nbsp; &nbsp;
+                                    <p *ngIf="n===editIndoItem">
+                                        <label *ngIf="n===editIndoItem"><strong>Item Price: </strong></label>
+                                        <input *ngIf="n===editIndoItem" [(ngModel)]="n.price" type="number"
+                                            class="form-control" required>
+                                    </p>
+
+                                    <button type="button" *ngIf="n===editIndoItem" class="btn btn-sm btn-success"
+                                        title="Save" (click)="update()">Save</button>
+
+                                    <div class="btn-group" *ngIf="n!==editIndoItem">
+                                        <button type="button" class="btn btn-sm btn-warning" title="Edit Menu Item"
+                                            (click)="edit(n)">
+                                            Edit</button>
+                                        <button type="button" class="btn btn-sm btn-danger" title="Delete Menu Item"
+                                            (click)="delete(n)">Delete</button>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
